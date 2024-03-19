@@ -167,6 +167,19 @@
   # pidginPackages.purple-slack};
 
   # List services that you want to enable:
+  powerManagement.enable = true;
+  powerManagement.cpuFreqGovernor = "performance";
+  powerManagement.powertop.enable = true;
+
+  services.xserver.videoDrivers = ["nvidia"];
+  hardware.nvidia = {
+    modesetting.enable = true;
+    powerManagement.enable = false;
+    powerManagement.finegrained = false;
+    open = false;
+    nvidiaSettings = true;
+    package = config.boot.kernelPackages.nvidiaPackages.beta;
+  };
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
@@ -180,14 +193,7 @@
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 
-  #Disable auto system sleep
-  systemd.targets.sleep.enable = false;
-  systemd.targets.suspend.enable = false;
-  systemd.targets.hibernate.enable = false;
-  systemd.targets.hybrid-sleep.enable = false;
-  powerManagement.enable = false;
-
-  # This value determines the NixOS release from which the default
+  #Disa  # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
   # on your system were taken. It‘s perfectly fine and recommended to leave
   # this value at the release version of the first install of this system.
