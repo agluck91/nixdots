@@ -9,6 +9,7 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ./gnome-wayland.nix
+      ./nvidia.nix
       inputs.home-manager.nixosModules.default
     ];
 
@@ -171,15 +172,6 @@
   powerManagement.cpuFreqGovernor = "performance";
   powerManagement.powertop.enable = true;
 
-  services.xserver.videoDrivers = ["nvidia"];
-  hardware.nvidia = {
-    modesetting.enable = true;
-    powerManagement.enable = false;
-    powerManagement.finegrained = false;
-    open = false;
-    nvidiaSettings = true;
-    package = config.boot.kernelPackages.nvidiaPackages.beta;
-  };
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
