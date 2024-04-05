@@ -69,6 +69,8 @@
     enableZshIntegration = true;
 
     settings = {
+        palette = "catppuccin_mocha";
+
         format = "$os$directory$git_branch$git_status$line_break> $deno$nodejs$pulumi$rust$golang$time$line_break$character";
 
         os = {
@@ -104,7 +106,7 @@
           style = "lavender";
         };
 
-        palletes = {
+        palettes = {
             catppuccin_mocha = {
               rosewater = "#f5e0dc";
               flamingo = "#f2cdcd";
