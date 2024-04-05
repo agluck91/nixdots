@@ -60,6 +60,7 @@
     shellAliases = {
       ll = "ls -l";
       update = "sudo nixos-rebuild switch --flake ~/projects/nixdots#default";
+      edit = "nvim ~/projects/nixdots/";
     };
   };
 

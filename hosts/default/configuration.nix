@@ -9,7 +9,10 @@
       inputs.home-manager.nixosModules.default
     ];
 
-  # Bootloader.
+  users.defaultUserShell = pkgs.zsh;
+  environment.shells = with pkgs; [ zsh ];
+  programs.zsh.enable = true;
+    # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
